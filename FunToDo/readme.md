@@ -35,7 +35,7 @@ The following **optional** features are **work in progress**:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/vishalpmittal/AndroidApps/tree/master/FunToDo/demos/demo_funtodo.gif' title='FunToDo Demo' width='' alt='FunToDo Demo' />
+<img src='https://goo.gl/photos/QnvYqKQz7ZpsQq2dA' title='FunToDo Demo' width='' alt='FunToDo Demo' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
