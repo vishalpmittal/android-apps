@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/vishalm/desk/github/vishalrepo/courses/android_codepath/android_hello_world/assets"/></dataSet><dataSet config="debug"><source path="/Users/vishalm/desk/github/vishalrepo/courses/android_codepath/android_hello_world/build-types/debug/assets"/></dataSet></merger>

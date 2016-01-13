@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/vishalm/desk/github/vishalrepo/courses/android_codepath/android_hello_world/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="48c94ae70fa65718b382098237806a5909bb096e">
+        <dex dex="/Users/vishalm/desk/github/vishalrepo/courses/android_codepath/android_hello_world/build/intermediates/pre-dexed/debug/android-support-v4-1acd8851ff61578780b974c8351d70ffc3d8a0f6.jar" />
+    </item>
+
+</items>
