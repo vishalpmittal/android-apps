@@ -3,4 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="strAddItem">Add Item</string>
     <string name="strNewItemText">Enter a new item...</string>
+    <string name="title_activity_edit_item">Edit Item</string>
+    <string name="strEditTextLabel">Edit Item Below:</string>
+    <string name="strSaveBtnLabel">Save</string>
 </resources>

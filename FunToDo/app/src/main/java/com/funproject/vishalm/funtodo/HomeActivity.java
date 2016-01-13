@@ -1,5 +1,6 @@
 package com.funproject.vishalm.funtodo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,6 +30,8 @@ public class HomeActivity extends AppCompatActivity {
     ArrayAdapter<String> aToDoAdapter;
     ListView lvItems;
     EditText etEditText;
+    private int currentEditPosition = -1;
+    private final int REQUEST_CODE = 17;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,20 @@ public class HomeActivity extends AppCompatActivity {
                 toDoItems.remove(position);
                 aToDoAdapter.notifyDataSetChanged();
                 writeItems();
+                Toast.makeText(HomeActivity.this, "Item removed...", Toast.LENGTH_SHORT).show();
                 return true;
+            }
+        });
+
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent homeEditAcIntent = new Intent(HomeActivity.this, EditItemActivity.class);
+                homeEditAcIntent.putExtra("itemText", toDoItems.get(position));
+                currentEditPosition = position;
+                startActivityForResult(homeEditAcIntent, REQUEST_CODE);
             }
         });
 
@@ -85,6 +101,23 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+
+            String editedItem = data.getExtras().getString("editedText");
+
+            if (currentEditPosition != -1) {
+                toDoItems.set(currentEditPosition, editedItem);
+                aToDoAdapter.notifyDataSetChanged();
+                writeItems();
+                currentEditPosition = -1;
+            }
+
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void populateTodoItems(){
         readItems();
         aToDoAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, toDoItems);
@@ -92,7 +125,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onAddItem(View view) {
         if (etEditText.getText().toString().trim().compareToIgnoreCase("")==0){
-            Toast.makeText(this, "No text to add...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter a todo item...", Toast.LENGTH_SHORT).show();
         }
         else{
             aToDoAdapter.add(etEditText.getText().toString());
@@ -119,5 +152,9 @@ public class HomeActivity extends AppCompatActivity {
         }catch (IOException e){
             System.out.println("Can not find the app file");
         }
+    }
+
+    public void makeNewItemTextEmpty(View view){
+        etEditText.setText("");
     }
 }

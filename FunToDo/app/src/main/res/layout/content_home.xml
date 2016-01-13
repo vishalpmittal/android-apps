@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/id_newItemText"
+        android:onClick="makeNewItemTextEmpty"
         android:layout_alignBottom="@+id/id_btn_addItem"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
